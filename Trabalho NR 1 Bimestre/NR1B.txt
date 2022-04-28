@@ -1,0 +1,58 @@
+int sinalVerde = 8;
+int sinalAmarelo = 12;
+int sinalVermelho = 13;
+int sinalVerdePed = 4;
+int sinalVermalhoPed = 7;
+int botao = 2;
+
+void setup()
+{
+  pinMode(sinalVermelho, OUTPUT);
+  pinMode(sinalAmarelo, OUTPUT);
+  pinMode(sinalVerde, OUTPUT);
+  pinMode(sinalVermalhoPed, OUTPUT);
+  pinMode(sinalVerdePed, OUTPUT);
+  pinMode(botao, INPUT);
+}
+
+void loop()
+{
+  int esBotao = digitalRead(botao);
+  
+    if(esBotao == HIGH){
+      digitalWrite(sinalAmarelo, HIGH);
+      digitalWrite(sinalVermalhoPed, HIGH);
+      delay(2000); //Esperar por 2S
+      digitalWrite(sinalAmarelo, LOW);
+      digitalWrite(sinalVermalhoPed, LOW);
+     
+
+      digitalWrite(sinalVermelho, HIGH);
+      digitalWrite(sinalVerdePed, HIGH);
+      delay(8000); //ESperar por 8S
+      digitalWrite(sinalVermelho,  LOW);
+      digitalWrite(sinalVerdePed, LOW);
+      
+    }else{
+  
+      digitalWrite(sinalVerde, HIGH);
+      digitalWrite(sinalVermalhoPed, HIGH);
+      delay(5000); //ESperar por 5S
+      digitalWrite(sinalVerde, LOW);
+      
+
+      digitalWrite(sinalAmarelo, HIGH);
+      digitalWrite(sinalVermalhoPed, HIGH);
+      delay(2000); //Esperar por 2S
+      digitalWrite(sinalAmarelo, LOW);
+      digitalWrite(sinalVermalhoPed, LOW);
+     
+
+      digitalWrite(sinalVermelho, HIGH);
+      digitalWrite(sinalVerdePed, HIGH);
+      delay(6000); //ESperar por 6S
+      digitalWrite(sinalVermelho, LOW);
+      digitalWrite(sinalVerdePed, LOW);
+     
+  	}
+}
